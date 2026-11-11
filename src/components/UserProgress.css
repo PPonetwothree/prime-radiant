@@ -1,0 +1,203 @@
+.rank {
+  position: relative;
+}
+
+.rank-button {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-areas:
+    'level name'
+    'bar   xp';
+  align-items: center;
+  column-gap: 0.6rem;
+  row-gap: 0.2rem;
+  font: inherit;
+  color: var(--ink);
+  background: none;
+  border: 1px solid var(--rule);
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+.rank-button:hover {
+  border-color: var(--ink);
+}
+
+.rank-level {
+  grid-area: level;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-3);
+}
+
+.rank-name {
+  grid-area: name;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.rank-bar {
+  grid-area: bar;
+  display: block;
+  height: 4px;
+  min-width: 4.5rem;
+  border: 1px solid var(--ink-3);
+}
+
+.rank-fill {
+  display: block;
+  height: 100%;
+  background: var(--ink);
+  transition: width 0.4s ease;
+}
+
+.rank-xp {
+  grid-area: xp;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--ink-3);
+}
+
+.rank-notice {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.5rem);
+  z-index: 50;
+  white-space: nowrap;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.4rem 0.7rem;
+}
+
+/* Service record: an index card */
+.record-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(20, 16, 12, 0.45);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 10vh 1rem 1rem;
+  overflow-y: auto;
+}
+
+.record {
+  width: 100%;
+  max-width: 30rem;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.record-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 3px double var(--ink);
+  padding-bottom: 0.4rem;
+}
+
+.record-head h2 {
+  font-size: 1.4rem;
+}
+
+.record-close {
+  font-size: 1.6rem;
+  line-height: 1;
+  background: none;
+  border: none;
+  color: var(--ink-2);
+  cursor: pointer;
+  padding: 0 0.25rem;
+}
+
+.record-close:hover {
+  color: var(--accent);
+}
+
+.record-rank {
+  font-style: italic;
+  color: var(--ink-2);
+  margin: 0.6rem 0 1rem;
+}
+
+.record-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--rule);
+}
+
+.record-stats div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.record-stats div:nth-child(odd) {
+  padding-right: 1rem;
+  border-right: 1px solid var(--rule);
+}
+
+.record-stats div:nth-child(even) {
+  padding-left: 1rem;
+}
+
+.record-stats dt {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-3);
+}
+
+.record-stats dd {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.record-sub {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-3);
+  margin: 1.25rem 0 0.5rem;
+}
+
+.record-empty {
+  font-style: italic;
+  color: var(--ink-2);
+}
+
+.record-list {
+  list-style: none;
+}
+
+.record-list li {
+  padding: 0.3rem 0;
+  border-bottom: 1px dotted var(--rule);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 600px) {
+  .rank-button {
+    width: 100%;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: 'level name xp' 'bar bar bar';
+  }
+
+  .rank-notice {
+    left: 0;
+    right: auto;
+  }
+}
